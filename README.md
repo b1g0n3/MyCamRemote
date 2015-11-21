@@ -1,4 +1,4 @@
-# MyCameraRemote
+# MyCamRemote
 
 Control (all) your camera(s) in your Recon Snow2 or Jet HUD
 
