@@ -1,7 +1,8 @@
 # MyCameraRemote
-Camera Romte for Recon Instruments Jet and Snow2
 
 Control (all) your camera(s) in your Recon Snow2 or Jet HUD
+
+I decided to open my first application to others cameras so I renamed it MyCameraRemote.
 
 This app is a Camera Remote clone on Recon Snow2 and Jet Hud. With it, you can preview the camera view, launch the record, change mode, change settings, see the % of battery or just see that your camera is still working.
 
@@ -65,3 +66,5 @@ Global :
 - look for activity animation
 - media browser
 - ~~support for GP4 session~~
+
+GOPRO, HERO, the GOPRO logo, and the GoPro Be a Hero logo are trademarks or registered trademarks of GoPro, Inc.
