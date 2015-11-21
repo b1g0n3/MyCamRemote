@@ -2,7 +2,7 @@
 
 Control (all) your camera(s) in your Recon Snow2 or Jet HUD
 
-I decided to open my first application to others cameras so I renamed it MyCameraRemote.
+I decided to open my first application to others cameras so I renamed it MyCamRemote.
 
 This app is a Camera Remote clone on Recon Snow2 and Jet Hud. With it, you can preview the camera view, launch the record, change mode, change settings, see the % of battery or just see that your camera is still working.
 
