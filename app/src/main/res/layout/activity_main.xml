@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fullscreen_content"
+    android:layout_width="428dp"
+    android:layout_height="240dp"
+    android:background="#000000"
+    android:clickable="false"
+    android:focusable="false"
+    tools:context="com.b1g0n3.mycamremote.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/black_overlay" >
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="200dp"
+            android:layout_height="90dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="left|top"
+            android:layout_marginTop="30dp"
+            android:clickable="false"
+            android:focusable="false"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="70dp"
+            android:text="No Camera"
+            android:textSize="18dp" />
+
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="90dp"
+            android:text="No Camera"
+            android:id="@+id/button2"
+            android:clickable="false"
+            android:focusable="false"
+            android:layout_gravity="left|top"
+            android:layout_below="@+id/button3"
+            android:layout_alignParentLeft="true"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="70dp"
+            android:singleLine="false"
+            android:textSize="18dp" />
+
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="90dp"
+            android:text="No Camera"
+            android:id="@+id/button3"
+            android:clickable="false"
+            android:focusable="false"
+            android:layout_gravity="left|top"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="70dp"
+            android:layout_below="@+id/textStatusCamera"
+            android:layout_alignParentRight="true"
+            android:shadowColor="#ff999999"
+            android:textSize="18dp" />
+
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="90dp"
+            android:text="No Camera"
+            android:id="@+id/button4"
+            android:clickable="false"
+            android:layout_gravity="left|top"
+            android:layout_below="@+id/button3"
+            android:layout_alignParentRight="true"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="70dp"
+            android:focusable="false"
+            android:textSize="18dp" />
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignLeft="@+id/button1"
+            android:layout_alignTop="@+id/button1"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="18dp"
+            android:adjustViewBounds="false"
+            android:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignTop="@+id/button2"
+            android:layout_alignLeft="@+id/button2"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="18dp"
+            android:adjustViewBounds="false"
+            android:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignLeft="@+id/button3"
+            android:layout_alignTop="@+id/button3"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="18dp"
+            android:adjustViewBounds="false"
+            android:background="@drawable/gopro_icon2"
+            android:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignTop="@+id/button4"
+            android:layout_alignLeft="@+id/button4"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="18dp"
+            android:adjustViewBounds="false"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/version"
+            android:layout_width="25dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/button2"
+            android:layout_toLeftOf="@+id/button4"
+            android:layout_toRightOf="@+id/button2"
+            android:gravity="center_horizontal"
+            android:text="2.0b"
+            android:textColor="@android:color/white"
+            android:textSize="12dp"
+            android:textStyle="bold" />
+
+        <ProgressBar
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar"
+            android:layout_above="@+id/button3"
+            android:layout_alignParentRight="true"
+            android:visibility="invisible"
+            android:max="100" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:id="@+id/textStatusCamera"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/progressBar"
+            android:gravity="center" />
+
+        <Button
+            android:id="@+id/buttonRefresh"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_alignParentRight="true"
+            android:gravity="top|center_horizontal"
+            android:text="Refresh"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/imageView4"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/gopro_title" />
+
+        <Button
+            android:id="@+id/ButtonHelp"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:gravity="top|center_horizontal"
+            android:text="Help"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/buttonSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignRight="@+id/button1"
+            android:gravity="top|center_horizontal"
+            android:text="Settings"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+
+</FrameLayout>

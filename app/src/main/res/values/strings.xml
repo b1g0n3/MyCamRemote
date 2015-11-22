@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MyCamRemote</string>
+    <string name="title_activity_settings">Camera settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_settings_from_preset">SettingsFromPresetActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_help">HelpActivity</string>
+
+</resources>

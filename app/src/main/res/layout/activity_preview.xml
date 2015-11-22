@@ -1,0 +1,163 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="428dp"
+    android:layout_height="240dp"
+    tools:context="com.example.mygoproremote.PreviewActivity" >
+
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+
+    <VideoView
+        android:id="@+id/videoView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:longClickable="false" />
+
+</RelativeLayout>
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:background="#88ffffff" >
+
+</RelativeLayout>
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/textStatusCamera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+</RelativeLayout>
+
+<RelativeLayout
+    android:id="@+id/StatusHaut"
+    android:layout_width="match_parent"
+    android:layout_height="40dp" >
+
+    <ImageView
+        android:id="@+id/imageMode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="false"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp" />
+
+    <TextView
+        android:id="@+id/textDuree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="2dp"
+        android:layout_toRightOf="@+id/imageMode"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/imageBatterie"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="2dp"
+        android:paddingRight="3dp" />
+    
+    <ImageView
+        android:id="@+id/imageWifi"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_centerVertical="true"
+        android:layout_margin="2dp"
+        android:layout_toLeftOf="@+id/imageBatterie"
+        android:paddingRight="3dp" />
+
+    <ImageView
+        android:id="@+id/imageUpDown"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_centerVertical="true"
+        android:layout_margin="2dp"
+        android:layout_toLeftOf="@+id/imageWifi"
+        android:paddingRight="3dp"
+        android:visibility="invisible" />
+    
+</RelativeLayout>
+
+<RelativeLayout
+    android:id="@+id/StatusBas"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:layout_gravity="bottom"
+    android:background="#66ffffff" >
+    
+    <ImageView
+        android:id="@+id/imageRecord"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:adjustViewBounds="false"
+        android:paddingBottom="2dp"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
+        android:paddingTop="2dp"
+        android:src="@color/black"
+        android:visibility="invisible" />
+    
+    <TextView
+        android:id="@+id/RecordFormat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/imageRecord"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/imageProtune"
+        android:layout_width="27dp"
+        android:layout_height="12dp"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/imageBalance"
+        android:paddingRight="2dp"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/imageBalance"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/imageExpo"
+        android:paddingRight="2dp" />
+
+    <ImageView
+        android:id="@+id/imageExpo"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/imageLowLight"
+        android:paddingRight="2dp" />
+    
+    <ImageView
+        android:id="@+id/imageLowLight"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:paddingRight="2dp" />
+    
+</RelativeLayout>
+
+</FrameLayout>
