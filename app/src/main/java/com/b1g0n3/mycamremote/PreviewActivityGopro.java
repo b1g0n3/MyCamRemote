@@ -46,7 +46,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 
-public class PreviewActivity extends Activity {
+public class PreviewActivityGopro extends Activity {
 	VideoView videoview;
 	public String GoproPassword;
 	public int currentshutter=0,actual_model=0,actual_mode=0;
@@ -933,10 +933,10 @@ public class PreviewActivity extends Activity {
 		super.onResume();
 		timer = new Timer();
 		timer2 = new Timer();
-		TimerTask OnlineProfile = new OnlineTimerTask(PreviewActivity.this);
+		TimerTask OnlineProfile = new OnlineTimerTask(PreviewActivityGopro.this);
 		timer2.scheduleAtFixedRate(OnlineProfile, 0, 1*1000);
 
-		TimerTask updateProfile = new CustomTimerTask(PreviewActivity.this);
+		TimerTask updateProfile = new CustomTimerTask(PreviewActivityGopro.this);
 		timer.scheduleAtFixedRate(updateProfile, 0, refresh_status*1000);
 	}
 

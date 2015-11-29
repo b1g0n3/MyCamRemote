@@ -25,9 +25,10 @@
             android:clickable="false"
             android:focusable="false"
             android:gravity="left|center_vertical"
-            android:paddingLeft="70dp"
+            android:paddingLeft="62dp"
             android:text="No Camera"
-            android:textSize="18dp" />
+            android:textSize="18dp"
+            android:textAlignment="center" />
 
         <Button
             android:layout_width="200dp"
@@ -40,7 +41,7 @@
             android:layout_below="@+id/button3"
             android:layout_alignParentLeft="true"
             android:gravity="left|center_vertical"
-            android:paddingLeft="70dp"
+            android:paddingLeft="62dp"
             android:singleLine="false"
             android:textSize="18dp" />
 
@@ -53,7 +54,7 @@
             android:focusable="false"
             android:layout_gravity="left|top"
             android:gravity="left|center_vertical"
-            android:paddingLeft="70dp"
+            android:paddingLeft="62dp"
             android:layout_below="@+id/textStatusCamera"
             android:layout_alignParentRight="true"
             android:shadowColor="#ff999999"
@@ -69,7 +70,7 @@
             android:layout_below="@+id/button3"
             android:layout_alignParentRight="true"
             android:gravity="left|center_vertical"
-            android:paddingLeft="70dp"
+            android:paddingLeft="62dp"
             android:focusable="false"
             android:textSize="18dp" />
 
@@ -79,7 +80,7 @@
             android:layout_height="50dp"
             android:layout_alignLeft="@+id/button1"
             android:layout_alignTop="@+id/button1"
-            android:layout_marginLeft="12dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="18dp"
             android:adjustViewBounds="false"
             android:visibility="visible" />
@@ -90,7 +91,7 @@
             android:layout_height="50dp"
             android:layout_alignTop="@+id/button2"
             android:layout_alignLeft="@+id/button2"
-            android:layout_marginLeft="12dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="18dp"
             android:adjustViewBounds="false"
             android:visibility="visible" />
@@ -101,7 +102,7 @@
             android:layout_height="50dp"
             android:layout_alignLeft="@+id/button3"
             android:layout_alignTop="@+id/button3"
-            android:layout_marginLeft="12dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="18dp"
             android:adjustViewBounds="false"
             android:background="@drawable/gopro_icon2"
@@ -113,7 +114,7 @@
             android:layout_height="50dp"
             android:layout_alignTop="@+id/button4"
             android:layout_alignLeft="@+id/button4"
-            android:layout_marginLeft="12dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="18dp"
             android:adjustViewBounds="false"
             android:visibility="visible" />

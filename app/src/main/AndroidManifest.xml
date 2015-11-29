@@ -21,7 +21,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:theme="@style/AppTheme" >
             <intent-filter>
@@ -30,11 +29,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".PreviewActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:name=".PreviewActivityGopro"
             android:label="@string/app_name"
             android:theme="@style/AppTheme2" >
         </activity>
+        <activity
+            android:name=".PreviewActivityXiaomi"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme2" >
+        </activity>
+=
         <activity
             android:name=".GlobalSettingsActivity"
             android:label="@string/title_activity_settings" >

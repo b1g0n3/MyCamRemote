@@ -1,5 +1,7 @@
 package org.gopro.core;
 
+import com.b1g0n3.tools;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -115,7 +117,7 @@ public class GoProHelper {
 	}
 
 	public BackPack getBackPackInfo() throws Exception {
-//		System.out.println("getBackPackInfo()");
+		tools.out("getBackPackInfo()");
 		BackPack localBackPack = new BackPack();
 		GoProProtocolParser localGoProProtocolParser;
 		try {
@@ -143,7 +145,7 @@ public class GoProHelper {
 	}
 
 	public BacPacStatus getBacpacStatus() throws Exception {
-//		System.out.println("getBacpacStatus()");
+		tools.out("getBacpacStatus()");
 		BacPacStatus localBacPacStatus = new BacPacStatus();
 		GoProProtocolParser localGoProProtocolParser;
 		try {
@@ -195,7 +197,7 @@ public class GoProHelper {
 
 	
 	public CamFields getCameraInfo() {
-//		System.out.println("getCameraInfo()");
+		tools.out("getCameraInfo()");
 		CamFields localCamFields = new CamFields();
 		GoProProtocolParser localGoProProtocolParser;
 		try {
@@ -215,7 +217,7 @@ public class GoProHelper {
 	}
 
 	public String getCameraNameCN() {
-//		System.out.println("getCameraNameCN");
+		tools.out("getCameraNameCN");
 		String str = this.getIpAddress();
 		byte[] arrayOfByte;
 		try {
@@ -238,13 +240,8 @@ public class GoProHelper {
 	}
 
 	public CamFields getCameraSettings() throws Exception {
-//		System.out.println("getCameraSettings()");
 		try {
 			byte[] arrayOfByte = sendGET(this.mCameraAddress + "/camera/se" + "?t=" + this.getToken());
-//			System.out.println("         1         2         3         4         5         6         7         8         9        10        11  ");
-//			System.out.println(" 2 4 6 8 0 2 4 6 8 0 2 4 6 8 0 2 4 6 8 0 2 4 6 8 0 2 4 6 8 0 2 4 6 8 0 2 4 6 8 0 2 4 6 8 0 2 4 6 8 0 2 4 6 8 0 2");
-//			System.out.println(""+mondecode(arrayOfByte));
-
 			return getCameraSettings(new GoProProtocolParser(arrayOfByte));
 		} catch (Exception localException) {
 			throw new Exception("Fail to get camera settings", localException);
@@ -252,7 +249,6 @@ public class GoProHelper {
 	}
 
 	public CamFields getCameraSettings(GoProProtocolParser paramGoProProtocolParser) {
-//		System.out.println("getCameraSettings(GoProProtocolParser paramGoProProtocolParser)");
 		CamFields localCamFields = new CamFields();
 		if (paramGoProProtocolParser.extractResultCode() != GoProProtocolParser.RESULT_IS_OK)
 			return null;
@@ -283,7 +279,7 @@ public class GoProHelper {
 	}
 
 	public CamFields getCameraSettingsExtended()  throws Exception {
-//		System.out.println("getCameraSettingsExtended()");
+		tools.out("getCameraSettingsExtended()");
 
 		try {
 				byte[] arrayOfByte = sendGET(this.mCameraAddress + "/camera/sx" + "?t=" + this.getToken());
@@ -297,7 +293,7 @@ public class GoProHelper {
 	}
 	
 	public CamFields getCameraSettingsExtended4()  throws Exception {
-//		System.out.println("getCameraSettingsExtended4()");
+		tools.out("getCameraSettingsExtended4()");
 		try {
 				String arrayOfByte = sendGET4(this.mCameraAddress + "/gp/gpControl/status");
 		} catch (Exception localException) {
