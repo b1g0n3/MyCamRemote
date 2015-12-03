@@ -241,6 +241,7 @@ public class GoProHelper {
 
 	public CamFields getCameraSettings() throws Exception {
 		try {
+			tools.out("getCameraSettings()");
 			byte[] arrayOfByte = sendGET(this.mCameraAddress + "/camera/se" + "?t=" + this.getToken());
 			return getCameraSettings(new GoProProtocolParser(arrayOfByte));
 		} catch (Exception localException) {
@@ -249,6 +250,7 @@ public class GoProHelper {
 	}
 
 	public CamFields getCameraSettings(GoProProtocolParser paramGoProProtocolParser) {
+		tools.out("getCameraSettings(parser)");
 		CamFields localCamFields = new CamFields();
 		if (paramGoProProtocolParser.extractResultCode() != GoProProtocolParser.RESULT_IS_OK)
 			return null;
@@ -351,6 +353,67 @@ public class GoProHelper {
 		if (settings.getInt("8")==1) { localCamFields.setLowLight(true); } else { localCamFields.setLowLight(false); }
 		return localCamFields;
 	}
+
+	public CamFields getCameraSettingsExtended5()  throws Exception {
+		tools.out("getCameraSettingsExtended5()");
+		try {
+			String arrayOfByte = sendGET5(this.mCameraAddress + "/gp/gpControl/status");
+		} catch (Exception localException) {
+			throw new Exception("Fail to get camera status/settings", localException);
+		}
+		JSONObject reader = new JSONObject(response);
+		CamFields localCamFields = new CamFields();
+//		System.out.println(response);
+		JSONObject status  = reader.getJSONObject("status");
+		JSONObject settings  = reader.getJSONObject("settings");
+//		System.out.println(status.getInt("1")+" "+status.getInt("2")+" "+status.getInt("3")+" "+status.getInt("4")+" "+status.getInt("6")+" "+status.getInt("8")+" "+status.getInt("9")+" | "+status.getInt("10")+" "+status.getInt("11")+" "+status.getInt("13")+" "+status.getInt("14")+" "+status.getInt("15")+" "+status.getInt("16")+" "+status.getInt("17")+" "+status.getInt("19")+" | "+status.getInt("20")+" "+status.getInt("22")+" "+status.getInt("24")+" "+status.getInt("26")+" "+status.getInt("27")+" "+status.getInt("28")+" "+status.getString("29")+" | "+status.getString("30")+" "+status.getInt("31")+" "+status.getInt("32")+" "+status.getInt("33")+" "+status.getInt("34")+" "+status.getInt("35")+" "+status.getInt("36")+" "+status.getInt("37")+" "+status.getInt("38")+" "+status.getInt("39")+" | "+status.getString("40")+" "+status.getInt("41")+" "+status.getInt("42")+" "+status.getInt("43")+" "+status.getInt("44")+" "+status.getInt("45")+" "+status.getInt("46")+" "+status.getInt("47")+" | "+status.getInt("48")+" "+status.getInt("49")+" "+status.getInt("54")+" "+status.getInt("55")+" "+status.getInt("56")+" "+status.getInt("57")+" "+status.getInt("58")+" "+status.getInt("59")+" ");
+//		System.out.println(settings.getInt("1")+" "+settings.getInt("2")+" "+settings.getInt("3")+" "+settings.getInt("4")+" "+settings.getInt("5")+" "+settings.getInt("6")+" "+settings.getInt("7")+" "+settings.getInt("8")+" "+settings.getInt("9")+" | "+settings.getInt("10")+" "+settings.getInt("11")+" "+settings.getInt("12")+" "+settings.getInt("13")+" "+settings.getInt("14")+" "+settings.getInt("15")+" "+settings.getInt("16")+" "+settings.getInt("17")+" "+settings.getInt("18")+" "+settings.getInt("19")+" | "+settings.getInt("20")+" "+settings.getInt("21")+" "+settings.getInt("22")+" "+settings.getInt("23")+" "+settings.getInt("24")+" "+settings.getInt("25")+" "+settings.getInt("26")+" "+settings.getInt("27")+" "+settings.getInt("28")+" "+settings.getInt("29")+" | "+settings.getInt("30")+" "+settings.getInt("31")+" "+settings.getInt("32")+" "+settings.getInt("33")+" "+settings.getInt("34")+" "+settings.getInt("35")+" "+settings.getInt("36")+" "+settings.getInt("37")+" "+settings.getInt("38")+" "+settings.getInt("39")+" | "+settings.getInt("40")+" "+settings.getInt("41")+" "+settings.getInt("42")+" "+settings.getInt("43")+" "+settings.getInt("44")+" "+settings.getInt("45")+" "+settings.getInt("46")+" "+settings.getInt("47")+" "+settings.getInt("48")+" "+settings.getInt("49")+" | "+settings.getInt("50")+" "+settings.getInt("51")+" "+settings.getInt("52")+" "+settings.getInt("53")+" "+settings.getInt("54")+" "+settings.getInt("55")+" "+settings.getInt("56")+" "+settings.getInt("57")+" "+settings.getInt("58")+" "+settings.getInt("59")+" | "+settings.getInt("60")+" "+settings.getInt("61")+" "+settings.getInt("62")+" "+settings.getInt("63")+" "+settings.getInt("64")+" "+settings.getInt("65")+" "+settings.getInt("66")+" "+settings.getInt("67")+" "+settings.getInt("68")+" "+settings.getInt("69")+" | "+settings.getInt("70")+" "+settings.getInt("71")+" "+settings.getInt("72"));
+		localCamFields.setMode(status.getInt("43"));
+		localCamFields.setSubMode(status.getInt("44"));
+		localCamFields.setMicrophoneMode(0);
+		localCamFields.setOndefault(0);
+		localCamFields.setVideoExposure(settings.getInt("9"));
+		localCamFields.setPhotoExposure(settings.getInt("20"));
+		localCamFields.setBurstExposure(settings.getInt("33"));
+		localCamFields.setTimeLapse(settings.getInt("30"));
+		localCamFields.setAutopower(0);
+		localCamFields.setFieldOfView(settings.getInt("4"));
+		localCamFields.setPhotoResolution(settings.getInt("17"));
+		localCamFields.setBurstResolution(settings.getInt("28"));
+		localCamFields.setVidres(settings.getInt("2"));
+		localCamFields.setAudioinput(0);
+		localCamFields.setPlaymode(0);
+		localCamFields.setPlaybackMin(0);
+		localCamFields.setPlaybackSec(status.getInt("13"));
+		localCamFields.setPreviewActive(true);
+		localCamFields.setBattery(status.getInt("2"));
+		localCamFields.setUsbMode(0);
+		localCamFields.setPhotosAvailable(status.getInt("34"));
+		localCamFields.setPhotosOncard(status.getInt("38"));
+		localCamFields.setVideoAvailable(status.getInt("35"));
+		localCamFields.setVideoOncard(status.getInt("39"));
+		localCamFields.setShutter(status.getInt("10"));
+		localCamFields.setProtuneVideoEnabled((short) settings.getInt("10"));
+		localCamFields.setProtuneVideoSetting(settings.getInt("11"));
+		localCamFields.setProtunePhotoEnabled((short) settings.getInt("21"));
+		localCamFields.setProtunePhotoSetting(settings.getInt("22"));
+		localCamFields.setProtuneBurstEnabled((short) settings.getInt("34"));
+		localCamFields.setProtuneBurstSetting(settings.getInt("35"));
+		localCamFields.setBurstRate(settings.getInt("29"));
+		localCamFields.setFramesPerSecond(settings.getInt("3"));
+		localCamFields.setWifiBar(status.getInt("56"));
+		localCamFields.setUpdown(settings.getInt("52"));
+		localCamFields.setContinousPhotoRate(settings.getInt("18"));
+		localCamFields.setTimelapseVideoInterval(settings.getInt("5"));
+		localCamFields.setVideoPhotoInterval(settings.getInt("7"));
+		localCamFields.setPhotoShutter(settings.getInt("19"));
+		localCamFields.setNightlapseShutter(settings.getInt("31"));
+		localCamFields.setNightlapseInterval(settings.getInt("32"));
+		localCamFields.setNoSDCard(status.getInt("33"));
+		if (settings.getInt("8")==1) { localCamFields.setLowLight(true); } else { localCamFields.setLowLight(false); }
+		return localCamFields;
+	}
+
 
 	public CamFields getCameraSettingsExtended(GoProProtocolParser paramGoProProtocolParser) {
 //		System.out.println("getCameraSettingsExtended(GoProProtocolParser paramGoProProtocolParser)");
@@ -502,6 +565,34 @@ public class GoProHelper {
 		httpEntity = localHttpResponse.getEntity();
         response = EntityUtils.toString(httpEntity);
         return response;
+	}
+	public String sendGET5(String paramString) throws Exception {
+		return sendGET5(paramString, this.mClient);
+	}
+
+	public String sendGET5(String paramString, DefaultHttpClient paramDefaultHttpClient)
+			throws Exception {
+//		System.out.println("sendGET5(String paramString, DefaultHttpClient paramDefaultHttpClient)");
+		ByteArrayOutputStream localByteArrayOutputStream = new ByteArrayOutputStream();
+		HttpResponse localHttpResponse;
+		HttpEntity httpEntity = null;
+		try {
+			System.setProperty("http.keepAlive", "true");
+			HttpGet localHttpGet = new HttpGet(paramString);
+			localHttpResponse = paramDefaultHttpClient.execute(localHttpGet);
+			int statusCode = localHttpResponse.getStatusLine().getStatusCode();
+			if (statusCode >= 400) {
+				localHttpGet.abort();
+				throw new IOException("Fail to send GET - HTTP error code = [" + statusCode + "]");
+			}
+		} catch (Exception localException) {
+//			System.out.println("httpGet exception (sendGET5)");
+			throw localException;
+		}
+
+		httpEntity = localHttpResponse.getEntity();
+		response = EntityUtils.toString(httpEntity);
+		return response;
 	}
 
 	

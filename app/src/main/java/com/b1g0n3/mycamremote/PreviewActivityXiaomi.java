@@ -111,6 +111,7 @@ public class PreviewActivityXiaomi extends Activity {
 		imageExpo = (ImageView) findViewById(R.id.imageExpo);
 		imageBalance = (ImageView) findViewById(R.id.imageBalance);
 		imageProtune = (ImageView) findViewById(R.id.imageProtune);
+		GoproModel =5;
 	}
 
 	@Override
@@ -364,6 +365,7 @@ public class PreviewActivityXiaomi extends Activity {
 
 							if (PowerOn) {
 								tools.out("PreviewActivityXiaomi : PowerOn=" + PowerOn);
+								textStatusCamera.setText("CAMERA ON");
 								try { refresh_status(); } catch (Exception e) { e.printStackTrace(); }
 							} else {
 								tools.out("PreviewActivityXiaomi : PowerOn=false");
@@ -384,22 +386,21 @@ public class PreviewActivityXiaomi extends Activity {
 	{
 		tools.out("PreviewActivityXiaomi refresh-status----------------------------------------------");
 		GoProApi gopro = new GoProApi(GoproPassword);
+		tools.out("point1");
 		GoProHelper helper = gopro.getHelper();
+		tools.out("point2");
 		StatusHaut(true); StatusBas(true);
-		camFields = helper.getCameraSettings();
+		tools.out("point3");
+//		camFields = helper.getCameraSettings();
+//		tools.out("point4");
 		Date df;
 		long FreePhotos, FreeVideos, currentNbrePhotos, currentNbreVideos,RecordingSec,RecordingMin,dv;
 		String libRecording,FreeTime, libTimelapse;
-		if (GoproModel==3) {
-			BacPacStatus bacpacStatus;
-			bacpacStatus = helper.getBacpacStatus();
-			wifiLevel = bacpacStatus.getRSSI();
-			camFields = helper.getCameraSettingsExtended();
-		}
-		if (GoproModel==4) {
-			camFields = helper.getCameraSettingsExtended4();
+
+		tools.out("point5");
+			camFields = helper.getCameraSettingsExtended5();
 			wifiLevel= camFields.getWifiBar();
-		}
+
 		currentMode = camFields.getMode();
 		currentSubMode = camFields.getSubMode();
 		if (camFields.getLowLight()) { currentLowLight = 1; } else { currentLowLight = 0; }
