@@ -5,10 +5,17 @@ import com.b1g0n3.tools;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.net.Socket;
+import java.net.SocketTimeoutException;
 import java.net.URLEncoder;
 import java.nio.ByteBuffer;
 import java.util.BitSet;
 import java.util.HashMap;
+import java.util.regex.Pattern;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -572,27 +579,71 @@ public class GoProHelper {
 
 	public String sendGET5(String paramString, DefaultHttpClient paramDefaultHttpClient)
 			throws Exception {
-//		System.out.println("sendGET5(String paramString, DefaultHttpClient paramDefaultHttpClient)");
-		ByteArrayOutputStream localByteArrayOutputStream = new ByteArrayOutputStream();
-		HttpResponse localHttpResponse;
-		HttpEntity httpEntity = null;
-		try {
-			System.setProperty("http.keepAlive", "true");
-			HttpGet localHttpGet = new HttpGet(paramString);
-			localHttpResponse = paramDefaultHttpClient.execute(localHttpGet);
-			int statusCode = localHttpResponse.getStatusLine().getStatusCode();
-			if (statusCode >= 400) {
-				localHttpGet.abort();
-				throw new IOException("Fail to send GET - HTTP error code = [" + statusCode + "]");
-			}
-		} catch (Exception localException) {
-//			System.out.println("httpGet exception (sendGET5)");
-			throw localException;
-		}
+            int j = 2;
+            Socket i = new Socket();
+            InetSocketAddress inetsocketaddress = new InetSocketAddress(InetAddress.getByName("192.168.42.1"), 7878);
+            i.setTcpNoDelay(true);
+            i.setTrafficClass(20);
+            i.setKeepAlive(true);
+            i.setPerformancePreferences(0, 1, 1);
+            i.setSoTimeout(2000);
+            i.setReuseAddress(true);
+            i.connect(inetsocketaddress, 10000);
+            f = new InputStreamReader(i.getInputStream());
+            g = new OutputStreamWriter(i.getOutputStream());
+            c = Pattern.compile("\\{[^\\{\\}]*(\\{[^\\{\\}]*\\}[^\\{\\}]*)*(\\[\\{[^\\{\\}]*\\}\\][^\\{\\}]*)*\\}");
+            e = new char[16384];
+            d = new StringBuilder();
+            return true;
+            Object obj;
+            obj;
+            ((SocketTimeoutException) (obj)).printStackTrace();
+            _L3:
+            j--;
+            continue; /* Loop/switch isn't completed */
+            obj;
+            ((Exception) (obj)).printStackTrace();
+            try
+            {
+                TimeUnit.MILLISECONDS.sleep(1000L);
+            }
+            catch (InterruptedException interruptedexception)
+            {
+                interruptedexception.printStackTrace();
+            }
+            if (true) goto _L3; else goto _L2
+            _L2:
+            com.ants360.a.a.a.b.a("debug_wifi", "create socket failed!");
+            return false;
+            if (true) goto _L5; else goto _L4
+            _L4:
+        }
 
-		httpEntity = localHttpResponse.getEntity();
-		response = EntityUtils.toString(httpEntity);
-		return response;
+        static boolean a(d d1, boolean flag)
+        {
+            d1.b = flag;
+            return flag;
+        }
+
+        private void b()
+        {
+            if (i == null)
+            {
+                break MISSING_BLOCK_LABEL_22;
+            }
+            i.close();
+            com.ants360.a.a.a.b.a("debug_wifi", "socket closed");
+            return;
+            IOException ioexception;
+            ioexception;
+            com.ants360.a.a.a.b.a("debug_wifi", "socket close exception");
+            ioexception.printStackTrace();
+            return;
+        }
+
+
+
+        return response;
 	}
 
 	
